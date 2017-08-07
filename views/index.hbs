@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8582870355456408",
+            enable_page_level_ads: true
+        });
+    </script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-91387936-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>{{title}}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    {{#each cssPaths}}
+        <link rel="stylesheet" href="{{this}}">
+    {{/each}}
+
+    {{#each appleTouchIcons}}
+        <link rel="apple-touch-icon" sizes="{{this.size}}" href="{{this.path}}">
+    {{/each}}
+    {{#each icons}}
+        <link rel="icon" type="image/png" sizes="{{this.size}}" href="{{this.path}}">
+    {{/each}}
+    <link rel="manifest" href="../public/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+<body>
+    <section class="main-header">
+        <nav class="navbar navbar-default navbar-form navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="/" style="color: white">JOBSCREED</a>
+                <div class="navbar-form navbar-left">
+                    <div class="row" id="existLMessage" style="color: red"></div>
+                    <div class="form-group">
+                        <input type="email" id="emailL" name="email" class="form-control" style="width: 250px" placeholder="Email ID" required><div id="emailLMessage" style="color: red"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="passwordL" name="password" class="form-control" style="width: 250px" placeholder="Password" required><div id="passwordLMessage" style="color: red"></div>
+                    </div>
+                    <button type="submit" class="btn btn-success" id="login">LOGIN <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                    <a id="forgotPassword" href="/lp" style="display: inline">Forgot Password?</a>
+                </div>
+                <!--<div class="hidden-sm hidden-xs">-->
+                    <!--<ul class="nav navbar-nav">-->
+                        <!--{{#each socialMediaFA}}-->
+                            <!--<li><a href="#"><i class="fa {{this}} fa-lg" style="color: white"></i></a></li>-->
+                        <!--{{/each}}-->
+                    <!--</ul>-->
+                <!--</div>-->
+            </div>
+        </nav>
+
+        <div class="slide-wrapper">
+            <div id="homepage-carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#homepage-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#homepage-carousel" data-slide-to="1"></li>
+                    <li data-target="#homepage-carousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    {{#each carouselSliders}}
+                        <div class="{{this.class}}">
+                            <img src="{{this.image}}" alt="{{this.alt}}">
+                            <div class="carousel-caption">
+                                <h6>DEDICATION / CONCENTRATION / ACHIEVEMENT</h6>
+                                <h1>{{this.heading}}</h1>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+
+                <div class="signup-div">
+                    <div class="signup-form">
+                        <div class="row" id="existSMessage" style="color: red"></div>
+                        <div class="form-group">
+                            <input type="text" id="fname" name="fname" class="form-control" placeholder="First Name" required><small id="fnameMessage" style="color: red"></small>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="lname" name="lname" class="form-control" placeholder="Last Name" required><small id="lnameMessage" style="color: red"></small>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="emailS" name="email" class="validate form-control" data-error="Invalid Email ID" placeholder="Email ID" required><small id="emailSMessage" style="color: red"></small>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="passwordS" name="password" onchange="checkP()" class="form-control" placeholder="Password" required><small id="passwordSMessage" style="color: red"></small>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="cpassword" name="cpassword" onchange="checkP()" class="form-control" placeholder="Confirm Password" required><div id="cpasswordMessage"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="cno" name="contact" class="form-control" maxlength="10" minlength="10" placeholder="Contact No." required><small id="cnoMessage" style="color: red"></small>
+                        </div>
+                        <div class="form-group">
+                            <select id="profession" name="profession" title="profession" class="form-control">
+                                <option value="sp" name="profession" disabled selected id="sp">Select Profile</option>
+                                {{#each professionList}}
+                                    <option id="{{this}}" value="{{this}}" name="profession">{{this}}</option>
+                                {{/each}}
+                            </select>
+                            <small id="professionMessage" style="color: red"></small>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" class="form-control" id="dob" name="dob" placeholder="Date Of Birth" required>
+                            <small id="dobMessage" style="color: red"></small>
+                        </div>
+                        <div class="form-group" style="text-align: left; color: lightslategray; font-size: 15px">Gender :
+                            <input name="gender" type="radio" value="Male" id="gender" checked>
+                            <label for="Male">Male </label>
+                            <input name="gender" type="radio" value="Female" id="gender">
+                            <label for="Female">Female </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="signup">SIGN UP</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <h6>&copy; 2017 JobsCreed</h6>
+        </div>
+    </footer>
+
+    {{#each jsPaths}}
+        <script type="text/javascript" src="{{this}}"></script>
+    {{/each}}
+    <script>
+        if ( $('[type="date"]').prop('type') != 'date' ) {
+            $('[type="date"]').datepicker();
+        }
+    </script>
+
+</body>
+</html>

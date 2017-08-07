@@ -1,0 +1,80 @@
+.file-upload {
+    position: relative;
+    overflow: hidden;
+}
+
+.file-upload input.file-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    display: block;
+}
+
+#indJobContent {
+    padding-bottom: 5px;
+}
+
+#indJobContent .company_location {
+    font-size: 11px;
+    overflow: hidden;
+}
+
+#indJobContent .job {
+    display:block;
+    overflow: hidden;
+}
+
+#indeed_link a {
+    color: #000000;
+    text-decoration: none;
+}
+
+#indeed_link {
+    position: absolute;
+    bottom: 1px;
+    right: 5px;
+    clear: both;
+    font-size: 12px;
+}
+
+#results .job {
+    padding: 5px;
+}
+
+#pagination {
+    clear: both;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.jobtitle {
+    font-size: 16px;
+}
+
+.company {
+    font-size: 15px;
+}
+
+.location {
+    font-size: 15px;
+    color: #666;
+}
+
+.job_age {
+    font-size: 13px;
+    color: gray;
+}
+
+.iaLabel {
+    color: #f60;
+}
+
+#indJobContent a {
+    color: #0047CC;
+}

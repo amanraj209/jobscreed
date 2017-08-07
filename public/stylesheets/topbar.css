@@ -1,0 +1,70 @@
+body {
+    width: 1px;
+    min-width: 100%;
+    *width: 100%;
+}
+
+#bloodhound input {
+    width: 550px;
+}
+.tt-hint {
+    color: #999999;
+}
+.tt-menu {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 12px;
+    padding: 0;
+    width: 550px;
+}
+.tt-suggestion {
+    padding: 15px 20px;
+    height: 50px;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+}
+.tt-suggestion:hover {
+    cursor: pointer;
+    background-color: #0097CF;
+    color: #FFFFFF;
+}
+
+.badge {
+    display:inline-block;
+    min-width:10px;
+    padding:3px 7px;font-size:12px;
+    font-weight:bold;
+    line-height:1;
+    color:#fff;
+    text-align:center;
+    white-space:nowrap;
+    vertical-align:baseline;
+    background-color: rebeccapurple;
+    border-radius:10px
+}
+.badge:empty {
+    display:none
+}
+.badge {
+    position:relative;
+    top:-1px
+}
+a.badge:hover, a.badge:focus {
+    color:#fff;
+    text-decoration:none;
+    cursor:pointer
+}
+
+li, li a, a, button {
+    outline: none !important;
+}
+
+.hidden-chat {
+    display: none !important;
+}
+
+#sendMessage {
+    cursor: pointer;
+    color: #2b669a;
+}

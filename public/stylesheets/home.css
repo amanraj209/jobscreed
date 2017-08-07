@@ -1,0 +1,14 @@
+#online-users {
+    min-height: 0;
+    max-height: 270px;
+    overflow-y: auto;
+}
+
+.fa-circle {
+    color: green;
+    float: none;
+    width: 0;
+    vertical-align: middle;
+    font-size: 8px;
+    padding-left: 7px;
+}

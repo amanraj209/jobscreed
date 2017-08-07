@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8582870355456408",
+            enable_page_level_ads: true
+        });
+    </script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-91387936-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>{{title}}</title>
+
+    {{#each cssPaths}}
+        <link rel="stylesheet" href="{{this}}">
+    {{/each}}
+
+    {{#each appleTouchIcons}}
+        <link rel="apple-touch-icon" sizes="{{this.size}}" href="{{this.path}}">
+    {{/each}}
+    {{#each icons}}
+        <link rel="icon" type="image/png" sizes="{{this.size}}" href="{{this.path}}">
+    {{/each}}
+    <link rel="manifest" href="../public/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body class="bhn">
+
+<div class="bia" id="app-growl"></div>
+
+<nav class="ck ra rg vt app-navbar">
+    <div class="by">
+        <div class="bhs">
+            <button class="re aqi xw" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            </button>
+            <a class="e" href="/">
+                <img src="./images/logo/logo.png" alt="brand" style="width: 25px">
+            </a>
+        </div>
+        <div class="collapse ri" id="navbarResponsive">
+            <ul class="nav navbar-nav">
+                <li class="qu active">
+                    <a class="qs" href="/">Home <span class="yk">(current)</span></a>
+                </li>
+                <li class="qu">
+                    <a class="qs" href="/profile?uid={{uid}}">Profile</a>
+                </li>
+                <li class="qu">
+                    <a class="qs" data-toggle="modal" href="#msgModal">Messages<span class="badge" id="messagesCount"></span></a>
+                </li>
+                <li class="qu">
+                    <a class="qs" data-toggle="modal" href="#requestModal">Requests<span class="badge" id="invitationRequestCount"></span></a>
+                </li>
+
+                <li class="qu aqi">
+                    <a class="qs" id="notificationLink" href="/notifications">Notifications<span class="badge" id="notificationCount"></span></a>
+                </li>
+                <li class="qu aqi">
+                    <a class="qs" href="/profile?uid={{uid}}#blog">Blog</a>
+                </li>
+                <li class="qu aqi">
+                    <a class="qs" href="/profile?uid={{uid}}#jobs">Jobs</a>
+                </li>
+                <li class="qu aqi">
+                    <a class="qs" href="/profile?uid={{uid}}#account-settings">Account Settings</a>
+                </li>
+                <li class="qu aqi">
+                    <a class="qs" href="/logout" onclick="clearIndexedDB()">Logout</a>
+                </li>
+            </ul>
+
+            <ul id="#js-popoverContent" class="nav navbar-nav xw yt aqh">
+                <li class="qu">
+                    <a id="notificationLinkSymbol" class="g qs" href="/notifications">
+                        <span class="h atk"></span><span class="badge" id="notificationCountSymbol"></span>
+                    </a>
+                </li>
+                <li class="qu">
+                    <button class="cg bix biy bhu" data-toggle="popover" data-original-title="" title="">
+                        <img class="wj" src="{{photoURL}}">
+                    </button>
+                </li>
+            </ul>
+            <form class="pb xw aqh" id="bloodhound">
+                <input class="form-control typeahead" type="text" placeholder="Search" autocomplete="off">
+            </form>
+
+            <ul class="nav navbar-nav aqe" id="js-popoverContent">
+                <li class="qu"><a class="qs" href="/profile?uid={{uid}}#blog">Blog</a></li>
+                <li class="qu"><a class="qs" href="/profile?uid={{uid}}#jobs">Jobs</a></li>
+                <li class="qu"><a class="qs" href="/profile?uid={{uid}}#account-settings">Account Settings</a></li>
+                <li class="qu"><a class="qs" href="/logout" onclick="clearIndexedDB()">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+<div class="cd fade" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="biz" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="d">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h5 class="modal-title">Messages</h5>
+                <p id="chat-username" style="margin-bottom: 0; color: grey; font-weight: 400; text-align: center"></p>
+                <p class="hidden-chat" id="chat-id"></p>
+                <p class="hidden-chat" id="chat-photo"></p>
+                <p class="hidden-chat" id="chat-socket-id"></p>
+            </div>
+
+            <div class="modal-body aah js-modalBody">
+                <div class="ari" id="chat-body">
+                    <div class="uf cj ca" id="chat-list">
+
+                    </div>
+
+                    <div class="hidden-chat zm js-conversation">
+                        <ul class="uf bim" id="chat-messages">
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cd fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="bja" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="d">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Connection Requests</h4>
+            </div>
+
+            <div class="modal-body aah">
+                <div class="ari">
+                    <ul class="uf cj ca" id="invitationRequests">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="by abk">
+    <div class="dl">
+        <div class="fj">
+            <div class="rm bis zw">
+                <div class="rs" style="background-image: url(./images/profile/iceland.jpg);"></div>
+                <div class="rn apb">
+                    <a href="">
+                        <img class="bit" src="{{photoURL}}" data-action="zoom">
+                    </a>
+
+                    <h6 class="ro">
+                        <a class="bhm" href="">{{title}}</a>
+                    </h6>
+
+                    <p class="zw">{{profession}}</p>
+
+                    <a class="bhm">
+                        Connections
+                        <h6 class="yx">{{connectionsCount}}</h6>
+                    </a>
+                </div>
+            </div>
+
+            <div class="rm bjc bjd zw">
+                <div class="rn">
+                    <h6 class="zp">About <small>· <a href="/profile?uid={{uid}}#account-settings">Edit</a></small></h6>
+                    <ul class="de aqs" id="user-info-list">
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rm bjc bjd">
+                <div class="rn">
+                    <h6 class="zp">Connections</h6>
+                    <div>
+                        {{#each connectionsInfo}}
+                            <div style="margin: 8px; display: inline-block; vertical-align: bottom;">
+                                <a href="/profile?uid={{this.uid}}" style="text-decoration: none">
+                                    <img data-width="40" data-height="40" src="{{this.photoURL}}" style="width: 60px; height: 60px;">
+                                    <p style="text-align: center; font-size: 8px; color: black;">{{this.name}}</p>
+                                </a>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fm">
+
+            <div class="tx b abj" style="text-align: center">{{title}}'s BLOG</div>
+
+            <div class="tx b abj">
+                <div class="input-group">
+                    <input id="blog-title" type="text" class="form-control" placeholder="Blog Title" style="margin-bottom: 5px" onclick="changeCss(this)">
+                </div>
+                <div class="input-group">
+                    <textarea id="blog-input" type="text" class="form-control" maxlength="20000" placeholder="Share your views..." rows="5" style="resize: none" onclick="changeCss(this)"></textarea>
+                </div>
+                <div class="input-group">
+                    <button id="post-blog" style="margin-top: 5px" class="cg xw pm">Post</button>
+                </div>
+            </div>
+
+            <ul class="ca uf bii zw" id="blog-post-list">
+
+            </ul>
+        </div>
+        <div class="fj">
+            <div class="alert tm alert-dismissible aqj" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <a class="tj" href="/profile?uid={{uid}}">Visit your profile!</a> Check your self, you aren't looking well.
+            </div>
+
+            <div class="rm zw aqj">
+                <div class="rn">
+                    <h6 class="zp">Online Users</h6>
+                    <ul class="uf bii" id="online-users">
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rm biw">
+                <div class="rn" style="text-align: center">
+                    © 2017 JOBSCREED
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#each jsPaths}}
+    <script type="text/javascript" src="{{this}}"></script>
+{{/each}}
+</body>
+</html>
