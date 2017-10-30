@@ -1,4 +1,4 @@
-var ind_pub = '6840469190420020';
+var ind_pub = 'ind_pub';
 var ind_el = 'indJobContent';
 var ind_pf = '';
 var ind_q = '';
