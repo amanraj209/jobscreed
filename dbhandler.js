@@ -10,7 +10,7 @@ AWS.config.update({
 const dynamodb = new AWS.DynamoDB({endpoint: "https://dynamodb.us-west-2.amazonaws.com"});
 const ses = new AWS.SES({endpoint: "https://email.us-west-2.amazonaws.com"});
 
-const driver = neo4j.driver("endpoint:PORT", neo4j.auth.basic("username", "password"));
+const driver = neo4j.driver("bolt://hobby-cigccaohojekgbkeenajpcol.dbs.graphenedb.com:24786", neo4j.auth.basic("jobscreed", "b.yF4RVnHdRWXm.5XlJD03131u5IFIf"));
 
 module.exports = {
 
@@ -63,8 +63,8 @@ module.exports = {
                                         Charset: "utf-8"
                                     }
                                 },
-                                Source: "no-reply@hostname.com",
-                                SourceArn: "sourceARN"
+                                Source: "no-reply@jobscreed.com",
+                                SourceArn: "arn:aws:ses:us-west-2:921720508836:identity/jobscreed.com"
                             };
                             ses.sendEmail(params, function (err, data) {
                                 if (err) {
@@ -155,8 +155,8 @@ module.exports = {
                             Charset: "utf-8"
                         }
                     },
-                    Source: "no-reply@hostname.com",
-                    SourceArn: "sourceARN"
+                    Source: "no-reply@jobscreed.com",
+                    SourceArn: "arn:aws:ses:us-west-2:921720508836:identity/jobscreed.com"
                 };
                 ses.sendEmail(params, function (err, data) {
                     if (err) {
@@ -205,8 +205,8 @@ module.exports = {
                             Charset: "utf-8"
                         }
                     },
-                    Source: "no-reply@hostname.com",
-                    SourceArn: "sourceARN"
+                    Source: "no-reply@jobscreed.com",
+                    SourceArn: "arn:aws:ses:us-west-2:921720508836:identity/jobscreed.com"
                 };
                 ses.sendEmail(params, function (err, data2) {
                     if (err) {
