@@ -16,6 +16,7 @@ const formidable = require('formidable');
 const uuid = require('uuid');
 const njwt = require('njwt');
 const Cookies = require('cookies');
+const crypto = require('crypto');
 const session = require('express-session');
 const dbhandler = require('./dbhandler');
 const randomToken = require('random-token').create('abcdefghijklmnopqrstuvwxzyABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789');
@@ -117,7 +118,8 @@ app.post('/signup', function (req, res) {
     const newuser = {
         name : req.body.fname + " " + req.body.lname,
         email : req.body.email,
-        password : md5(sha256(md5(req.body.password))),
+        // password : md5(sha256(md5(req.body.password))),
+        password : crypto.createHash('md5').update(req.body.password).digest('hex'),
         contact : req.body.contact,
         gender : req.body.gender,
         profession : req.body.profession,
@@ -179,7 +181,7 @@ app.post('/login', function (req, res) {
             });
         }
         else {
-            if (result.password !== md5(sha256(md5(req.body.password)))) {
+            if (result.password !== crypto.createHash('md5').update(req.body.password).digest('hex') /*md5(sha256(md5(req.body.password)))*/) {
                 res.send({
                     success: false,
                     message: "Invalid"
